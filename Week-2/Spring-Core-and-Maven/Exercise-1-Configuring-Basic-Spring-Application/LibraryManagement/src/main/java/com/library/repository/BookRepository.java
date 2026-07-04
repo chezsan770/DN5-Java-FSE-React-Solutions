@@ -1,14 +1,15 @@
 package com.library.repository;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class BookRepository {
     public List<String> findAllBooks() {
-        return Arrays.asList(
-                "Clean Code",
-                "Effective Java",
-                "Spring in Action"
-        );
+        List<String> books = new ArrayList<>();
+        books.add("Programming in java");
+        books.add("Fundamentals of Spring Boot");
+        books.add("Backend basics");
+        return books;
     }
 }

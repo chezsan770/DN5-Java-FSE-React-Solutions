@@ -7,8 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class LibraryManagementApplication {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-        BookService bookService = context.getBean("bookService", BookService.class);
-
+        BookService bookService = (BookService) context.getBean("bookService");
         bookService.displayAvailableBooks();
     }
 }

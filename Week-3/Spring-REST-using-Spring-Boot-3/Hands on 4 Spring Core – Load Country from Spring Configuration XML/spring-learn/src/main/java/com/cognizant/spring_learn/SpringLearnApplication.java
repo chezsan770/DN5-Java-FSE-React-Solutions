@@ -9,32 +9,23 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 @SpringBootApplication
 public class SpringLearnApplication {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
+	public static final Logger log = LoggerFactory.getLogger(SpringLearnApplication.class);
 
 	public static void main(String[] args) throws ParseException {
 		SpringApplication.run(SpringLearnApplication.class, args);
-		displayDate();
+
+		displayCountry();
 	}
 
-	public static void displayDate() throws ParseException {
-		ApplicationContext context = new ClassPathXmlApplicationContext("date-format.xml");
+	public static void displayCountry() {
+		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+		Country country = context.getBean("country",Country.class);
 
-		SimpleDateFormat format =context.getBean("dateFormat",SimpleDateFormat.class);
-		Date d = format.parse("31/12/2018");
-
-		LOGGER.info("START");
-
-		LOGGER.debug(String.valueOf(d));
-
-		LOGGER.info("END");
+		log.debug("Country : {}", country.toString());
 	}
-
-
 
 }
